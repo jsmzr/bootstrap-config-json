@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"github.com/jiurongzhao/bootstrap-global/config"
-	"github.com/jiurongzhao/bootstrap-global/util"
+	"github.com/jsmzr/bootstrap-config/config"
+	"github.com/jsmzr/bootstrap-config/util"
 )
 
 type JsonConfig struct{}
@@ -25,7 +25,7 @@ func (c *JsonConfig) Load(filename string) (config.Configer, error) {
 		return nil, err
 	}
 	return &JsonContainer{
-		dict: util.FlatStringKeyMap(&dict),
+		dict: util.FlatStringMap(&dict),
 	}, nil
 }
 
